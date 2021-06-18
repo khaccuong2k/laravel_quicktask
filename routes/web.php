@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/**
+ * Group route use chang language
+ */
+Route::middleware(['locale'])->group(function () {
+
+    /**
+     * Resource route for tasks
+     */
+    Route::resource('tasks', TaskController::class);
+
+    /**
+     * Route use to change language user
+     */
+    Route::get('change-language/{language}', [LocaleController::class, 'changeLanguage'])->name('user.change-language');
 });
