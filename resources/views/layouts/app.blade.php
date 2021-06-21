@@ -25,8 +25,8 @@
                 @lang('lables.task.changeLanguage')
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="{{ route('user.change-language', ['en']) }}"> @lang('lables.task.english') </a>
-                <a class="dropdown-item" href="{{ route('user.change-language', ['vi']) }}"> @lang('lables.task.vietnamese') </a>
+                <a class="dropdown-item" href="{{ route('users.change-language', ['en']) }}"> @lang('lables.task.english') </a>
+                <a class="dropdown-item" href="{{ route('users.change-language', ['vi']) }}"> @lang('lables.task.vietnamese') </a>
               </div>
             </li>
           </ul>

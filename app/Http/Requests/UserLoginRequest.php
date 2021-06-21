@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TaskStoreRequest extends FormRequest
+class UserLoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,21 +24,19 @@ class TaskStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:tasks|max:30',
+            'email' => 'required',
+            'password' => 'required',
         ];
     }
 
     /**
-     * Return message error for rule to the request
-     * 
-     * @return array
+     * Return array messages for request login
      */
     public function messages()
     {
         return [
-            'name.required' => 'messages.task.validate.required',
-            'name.unique' => 'messages.task.validate.unique',
-            'name.max' => 'messages.task.validate.max',
+            'email.required' => 'messages.login.validate.requiredEmail',
+            'password.required' => 'messages.login.validate.requiredPassword',
         ];
     }
 }

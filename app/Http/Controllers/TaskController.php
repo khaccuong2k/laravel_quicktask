@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TaskStoreRequest;
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Validator;
 
 class TaskController extends Controller
 {
@@ -23,7 +23,7 @@ class TaskController extends Controller
         try {
             $paginateNumber = config('app.paginateNumber.tableTask');
 
-            $tasks = Task::orderBy('id', 'desc')->paginate($paginateNumber);
+            $tasks = Auth::user()->tasks()->orderBy('id', 'desc')->paginate($paginateNumber);
 
             return view('task.index', compact('tasks'));
         } catch(QueryException $ex) {
@@ -43,7 +43,7 @@ class TaskController extends Controller
         try {
             $dataStore = $request->except('_token');
 
-            $storeTask = Task::create($dataStore);
+            $storeTask = Auth::user()->tasks()->create($dataStore);
 
             if ($storeTask) {
                 return back()->withSuccess('messages.task.store.success');

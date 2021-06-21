@@ -14,4 +14,8 @@ return [
         'delete'=> 'Xóa',
         'nameHide' => 'Nhập tên nhiệm vụ',
     ],
+    'login' => [
+        'email' => 'Email',
+        'password' => 'Mật khẩu',
+    ],
 ];

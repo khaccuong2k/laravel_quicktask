@@ -20,4 +20,11 @@ return [
             'max' => 'The name must less 30',
         ],
     ],
+    'login' => [
+        'validate' => [
+            'requiredEmail' => 'The email is required',
+            'requiredPassword' => 'The password is required',
+        ],
+        'fail' => 'Login fail'
+    ],
 ];

@@ -14,4 +14,8 @@ return [
         'delete'=> 'Delete',
         'nameHide' => 'Enter Task Name',
     ],
+    'login' => [
+        'email' => 'Email',
+        'password' => 'Password',
+    ],
 ];

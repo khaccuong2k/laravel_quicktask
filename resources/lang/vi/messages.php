@@ -20,4 +20,11 @@ return [
             'max' => 'Tên phải ít hơn 30 kí tự',
         ],
     ],
+    'login' => [
+        'validate' => [
+            'requiredEmail' => 'Vui lòng nhập email',
+            'requiredPassword' => 'Vui lòng nhập mật khẩu',
+        ],
+        'fail' => 'Đăng nhập thất bại',
+    ],
 ];
